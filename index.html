@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard Kehadiran Guru Pengajaran Umum SMK Negeri 1 Balikpapan Periode Juli–September 2026</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#F2F7FF;--surf:#FFFFFF;--ink:#0B2545;--mut:#5A6E8C;--line:#DCE8F8;--pri:#1D5FD1;--pri2:#3B8BFF;--soft:#EAF2FF;--hero1:#0B2E6B;--hero2:#1D5FD1;--c1:#1D5FD1;--c2:#3B8BFF;--c3:#8CBCFF;--c4:#0B2E6B;--c5:#BBD6FB;--c6:#0EA5C6;--c7:#5B7DB1;--c8:#9AA9C4;--chip:#EAF2FF;--green:#16A34A;--green-s:#DCFCE7;--green-t:#15803D;--yel:#EAB308;--yel-s:#FEF3C7;--yel-t:#A16207;--red:#DC2626;--red-s:#FEE2E2;--red-t:#B91C1C;--orange:#F97316;--orange-s:#FFEDD5;--orange-t:#C2410C;--pink:#F9A8D4;--pink-s:#FCE7F3;--pink-t:#BE185D;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081426;--surf:#0F1F38;--ink:#E6EEFB;--mut:#8FA5C7;--line:#1E3354;--pri:#5B9BFF;--pri2:#7DB2FF;--soft:#14294A;--hero1:#0A1F44;--hero2:#1B4FAE;--c1:#5B9BFF;--c2:#3B7BE6;--c3:#9CC4FF;--c4:#CFE1FF;--c5:#27508F;--chip:#14294A;--green:#4ADE80;--green-s:#14391F;--green-t:#86EFAC;--yel:#FACC15;--yel-s:#3A3010;--yel-t:#FDE047;--red:#F87171;--red-s:#451A1A;--red-t:#FCA5A5;--orange:#FB923C;--orange-s:#402108;--orange-t:#FDBA74;--pink:#F472B6;--pink-s:#3D1530;--pink-t:#F9A8D4;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#081426;--surf:#0F1F38;--ink:#E6EEFB;--mut:#8FA5C7;--line:#1E3354;--pri:#5B9BFF;--pri2:#7DB2FF;--soft:#14294A;--hero1:#0A1F44;--hero2:#1B4FAE;--c1:#5B9BFF;--c2:#3B7BE6;--c3:#9CC4FF;--c4:#CFE1FF;--c5:#27508F;--chip:#14294A;--green:#4ADE80;--green-s:#14391F;--green-t:#86EFAC;--yel:#FACC15;--yel-s:#3A3010;--yel-t:#FDE047;--red:#F87171;--red-s:#451A1A;--red-t:#FCA5A5;--orange:#FB923C;--orange-s:#402108;--orange-t:#FDBA74;--pink:#F472B6;--pink-s:#3D1530;--pink-t:#F9A8D4;color-scheme:dark}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.5;font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:36px 0 84px}
+header .wrap{display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+h1{font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.15;margin:0 0 8px;font-weight:800;letter-spacing:-.02em;max-width:640px}
+.sub{margin:0;color:#CFE1FF;font-size:.95rem;max-width:560px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;padding:8px 16px;border-radius:999px;font:600 .88rem inherit;font-family:inherit;cursor:pointer}
+.pill[aria-pressed="true"]{background:#fff;color:#0B2E6B;border-color:#fff}
+.pill:focus-visible,input:focus-visible,th button:focus-visible{outline:3px solid #8CBCFF;outline-offset:2px}
+.ring{display:flex;gap:16px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:16px 22px}
+.ring svg{width:92px;height:92px;flex:none}
+.ring b{font-size:1.9rem;display:block;line-height:1.1}
+.ring span{font-size:.82rem;color:#CFE1FF;display:block;max-width:190px}
+main{margin-top:-56px;padding-bottom:40px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(18,60,140,.07)}
+.kpi small{color:var(--mut);font-weight:600;font-size:.8rem}
+.kpi strong{display:block;font-size:1.9rem;line-height:1.2;font-weight:800;color:var(--pri)}
+.kpi em{font-style:normal;font-size:.76rem;color:var(--mut)}
+.kpi.main{background:var(--pri);border-color:var(--pri)}
+.kpi.main small,.kpi.main em{color:#DCE9FF}.kpi.main strong{color:#fff}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:16px}
+.s7{grid-column:span 7}.s5{grid-column:span 5}.s6{grid-column:span 6}.s12{grid-column:span 12}
+h2{font-size:1.05rem;margin:0 0 2px;font-weight:700}
+.hint{margin:0 0 12px;color:var(--mut);font-size:.82rem}
+.cv{position:relative;height:290px}
+.tools{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:end}
+input[type=search]{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:9px 12px;font:inherit;font-size:.9rem;min-width:240px}
+.tw{overflow-x:auto;max-height:520px;overflow-y:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{padding:9px 10px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+th{position:sticky;top:0;background:var(--soft);font-weight:700;color:var(--ink);z-index:1}
+th button{all:unset;cursor:pointer;font-weight:700}
+td.nm,th.nm{text-align:left;position:sticky;left:0;background:var(--surf);min-width:210px;white-space:normal}
+th.nm{background:var(--soft);z-index:2}
+tr:hover td{background:var(--soft)}tr:hover td.nm{background:var(--soft)}
+.v{display:inline-block;min-width:26px;padding:1px 7px;border-radius:999px;background:var(--chip);color:var(--pri);font-weight:700}
+.z{color:var(--mut);opacity:.5}
+.tot{font-weight:800;color:var(--pri)}
+.tag{font-size:.7rem;background:var(--soft);color:var(--pri);border-radius:6px;padding:1px 6px;margin-left:6px}
+.note{margin-top:16px;font-size:.82rem;color:var(--mut)}
+.note p{margin:6px 0}
+.ct{display:inline-block;padding:1px 8px;border-radius:6px;background:var(--chip);color:var(--pri);font-weight:700;font-size:.76rem}
+footer{text-align:center;color:var(--mut);font-size:.78rem;padding:0 20px 28px}
+.kpi.izin{border-top:4px solid var(--green)}.kpi.izin strong{color:var(--green-t)}
+.kpi.sakit{border-top:4px solid var(--yel)}.kpi.sakit strong{color:var(--yel-t)}
+.kpi.tk{border-top:4px solid var(--red)}.kpi.tk strong{color:var(--red-t)}
+.v.k0,.ct.cI{background:var(--green-s);color:var(--green-t)}
+.v.k1,.ct.cS{background:var(--yel-s);color:var(--yel-t)}
+.v.k3,.ct.cTK{background:var(--red-s);color:var(--red-t)}
+.v.k2,.ct.cC{background:var(--pink-s);color:var(--pink-t)}
+.v.k4,.ct.cTD{background:var(--orange-s);color:var(--orange-t)}
+.kpi.cuti{border-top:4px solid var(--pink)}.kpi.cuti strong{color:var(--pink-t)}
+.kpi.td{border-top:4px solid var(--orange)}.kpi.td strong{color:var(--orange-t)}
+th.h0{box-shadow:inset 0 -3px 0 var(--green)}th.h1{box-shadow:inset 0 -3px 0 var(--yel)}th.h3{box-shadow:inset 0 -3px 0 var(--red)}th.h2{box-shadow:inset 0 -3px 0 var(--pink)}th.h4{box-shadow:inset 0 -3px 0 var(--orange)}
+@media (max-width:860px){.s7,.s5,.s6{grid-column:span 12}.cv{height:260px}}
+@media (prefers-reduced-motion:no-preference){.pill{transition:background .2s,color .2s}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div>
+  <h1>Dashboard Kehadiran Guru Pengajaran Umum SMK Negeri 1 Balikpapan Periode Juli–September 2026</h1>
+  <p class="sub">SMK Negeri 1 Balikpapan · Tahun Pelajaran 2026/2027</p>
+  <div class="pills" role="group" aria-label="Pilih bulan" id="pills"></div>
+ </div>
+ <div class="ring" aria-label="Persentase hadir Agustus 2026">
+  <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="11"/><circle id="arc" cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" transform="rotate(-90 50 50)"/></svg>
+  <div><b id="hp"></b><span id="hs"></span></div>
+ </div>
+</div></header>
+<main class="wrap">
+ <section class="kpis" id="kpis" aria-label="Ringkasan"></section>
+ <section class="grid">
+  <div class="card s7"><h2>Ketidakhadiran per bulan</h2><p class="hint">Jumlah menurut jenis, seluruh bulan</p><div class="cv"><canvas id="c1"></canvas></div></div>
+  <div class="card s5"><h2>Komposisi kode</h2><p class="hint" id="h2t"></p><div class="cv"><canvas id="c2"></canvas></div></div>
+  <div class="card s6"><h2>Guru dengan ketidakhadiran terbanyak</h2><p class="hint" id="h3t"></p><div class="cv"><canvas id="c3"></canvas></div></div>
+  <div class="card s6"><h2>Dinas luar dan kegiatan</h2><p class="hint">Tidak dihitung sebagai ketidakhadiran</p><div class="cv"><canvas id="c4"></canvas></div></div>
+  <div class="card s12">
+   <div class="tools"><div><h2>Rekap per guru</h2><p class="hint" id="h5t" style="margin:0"></p></div><input type="search" id="q" placeholder="Cari nama guru" aria-label="Cari nama guru"></div>
+   <div class="tw"><table id="tb"></table></div>
+  </div>
+  <div class="card s12">
+   <h2>Rincian per tanggal</h2><p class="hint" id="h6t"></p>
+   <div class="tw" style="max-height:380px"><table id="ev"></table></div>
+  </div>
+ </section>
+</main>
+<script>
+const D={"teachers":[{"n":"Abd. Adzim, S.Pd.I","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Amiruddin Muin, S.Ag","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Dwi Suharti, S.Pd.I.,M.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Farikhah, S.Pd.I","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Jumiati Muchtar, S.Ag","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Dr. Kusnan, S.Ag.,M.Pd.I","g":"L","p":"III/c","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Muhamad Abdoli, S.Pd.I","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Siti Fatimah, S.Ag","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Anita Siwu, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Elviana Nensi, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Sulastriningsih, M.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Beky Frisca Andriani, S.Pd","g":"P","p":"IX","m":[[0,1,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Muh. Jamal, M.Pd","g":"L","p":"-","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Ari Wisnu Saputra, S.Pd","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Herlina, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,1,0,0,0,0,0],[0,0,2,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Maslim, S.Pd","g":"L","p":"IV/b","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,5,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Rizka Limansyah, S.Pd","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Sigit Purwanto, Drs","g":"L","p":"IV/c","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Sri Rejeki Nur Litawaty, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Winda Kusuma Andarini, S.Pd","g":"P","p":"IX","m":[[1,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Musdalifah, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,1,0,0,0,0,0,0,0,0],[0,1,0,0,0,1,0,0,0,0,0,0,0,0]]},{"n":"Arvan Fetura, M.Pd","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,1,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Totok Subuh Subianto, S.Pd","g":"L","p":"IV/b","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Fajarai Al-Alam, S.Pd","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Muhammad Ahsan Halim, S.Or.","g":"L","p":"-","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,4,0,0,0,0,0,0,0,0]]},{"n":"Atif Faizah, S.Psi","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Cynthia Wulandary Tampi, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Effy Dwiani, S.Pd","g":"P","p":"III/b","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Lita Hindrati, S.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Mardhiah Elza Prasanty, S.Psi","g":"P","p":"III/c","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Riska Nikita Sari, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Rufidah Dwiyati, S.P","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Sukmawati Paputungan, S.H","g":"P","p":"-","m":[[0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Ekawaty, S.Pd.,M.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0]]},{"n":"Eny Kusumawati, S.Pd","g":"P","p":"III/d","m":[[1,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Nurhidayati, S.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0]]},{"n":"Tenes Widoyo, M.Pd","g":"L","p":"IV/c","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Hayatun Najiah, S.Pd","g":"P","p":"III/b","m":[[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Fenesia Friska Sinurat, S.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0]]},{"n":"Khalimah Roosdiharti, S.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Nur Rodiatul Salmiah, S.Pd","g":"P","p":"IX","m":[[0,2,0,0,0,0,0,0,0,0,0,0,0,0],[3,0,0,5,1,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,0,0,0,0,0,0]]},{"n":"Rosmawati, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,1,0,0,0,0,0],[1,1,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Sri Eko Prihatin, S.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Yunia Hardiani Listiyowardany, S.S","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Yulli Fitriani, S.Pd","g":"P","p":"IX","m":[[1,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Indri Purnamawati, S.Pd","g":"P","p":"IX","m":[[0,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Meli Herlina Situmorang, S.Pd","g":"P","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Nita Budiarti, S.Pd","g":"P","p":"IX","m":[[1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,1,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Tonny Fajar Ramdhani, S.Pd","g":"L","p":"IX","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,1,0,0,0,0,0,0,0,0,0,0]]},{"n":"Tri Yudhayati, S.Pd","g":"P","p":"IV/a","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[3,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Marina Agustin, S.Pd.,M.Pd","g":"P","p":"III/c","m":[[1,1,0,0,0,0,0,0,0,0,0,0,0,0],[0,2,0,0,0,0,0,0,0,1,1,0,0,0],[2,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Muktar, S.Pd","g":"L","p":"IV/b","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,1,0,0,0],[0,0,1,0,0,1,0,0,0,0,0,0,0,0]]},{"n":"Siti Rofi'ah, S.Pd","g":"P","p":"III/a","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Siti Solehatun, M.Pd","g":"P","p":"III/b","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Yusvanto, M.Pd","g":"L","p":"III/b","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,1,0,0,0],[0,0,0,0,0,1,0,0,0,0,0,0,0,0]]},{"n":"Yuyun Harmini Noor, S.Pd","g":"P","p":"III/d","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Mila Ayanah, S.Pd","g":"P","p":"-","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,1,1,0,0,0],[0,4,0,0,0,1,0,0,0,0,0,0,0,0]]},{"n":"Nanik Indri Astutik, S.Pd","g":"P","p":"III/c","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},{"n":"Viviana Rubianti, S.Sn","g":"P","p":"-","m":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0]]}],"events":[[0,20,"Nur Rodiatul Salmiah, S.Pd","S","Bahasa Indonesia | 1-3 X DPIB1; 4-6 XII TITL2"],[0,21,"Nur Rodiatul Salmiah, S.Pd","S","Bahasa Indonesia | 4-6 X TEI | ada tugas"],[0,23,"Arvan Fetura, M.Pd","MGMP","PJOK | MGMP di SMK N 5 (ada tugas)"],[0,23,"Fajarai Al-Alam, S.Pd","MGMP","PJOK | MGMP di SMK N 5 (ada tugas)"],[0,23,"Muhammad Ahsan Halim, S.Or.","MGMP","PJOK | MGMP di SMK N 5 (ada tugas)"],[0,23,"Nita Budiarti, S.Pd","I","PKN | 3-4 XI TKP1 | ada tugas"],[0,23,"Marina Agustin, S.Pd.,M.Pd","I","Bahasa Inggris | 4-6 XI TEI | kontrol"],[0,24,"Yulli Fitriani, S.Pd","I","Bahasa Indonesia | 1-3 XI GP2; 4-6 XI TEI | kontrol mata"],[0,24,"Marina Agustin, S.Pd.,M.Pd","S","Bahasa Inggris | ada tugas"],[0,27,"Sukmawati Paputungan, S.H","S","PKN | 1-2 XI TP1; 7-8 XI GP1 | ada tugas"],[0,27,"Indri Purnamawati, S.Pd","S","Bahasa Indonesia | 3-5 XII GEOM; 6-8 XII TKR2 | ada tugas"],[0,28,"Sulastriningsih, M.Pd","MGMP","Sejarah | MGMP di SMK N 4 (ada tugas)"],[0,28,"Beky Frisca Andriani, S.Pd","MGMP","Sejarah | MGMP di SMK N 4 (ada tugas)"],[0,28,"Muh. Jamal, M.Pd","MGMP","Sejarah | MGMP di SMK N 4 (ada tugas)"],[0,29,"Abd. Adzim, S.Pd.I","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Amiruddin Muin, S.Ag","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Dwi Suharti, S.Pd.I.,M.Pd","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Farikhah, S.Pd.I","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Jumiati Muchtar, S.Ag","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Dr. Kusnan, S.Ag.,M.Pd.I","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Muhamad Abdoli, S.Pd.I","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Siti Fatimah, S.Ag","MGMP","Pendidikan Agama Islam | MGMP PAI di SMK N 5 (ada tugas)"],[0,29,"Beky Frisca Andriani, S.Pd","S","Sejarah | ada tugas"],[0,29,"Ekawaty, S.Pd.,M.Pd","MGMP","IPAS | MGMP IPAS di SMK N 5 (ada tugas)"],[0,29,"Eny Kusumawati, S.Pd","MGMP","IPAS | MGMP IPAS di SMK N 5 (ada tugas)"],[0,29,"Tenes Widoyo, M.Pd","MGMP","IPAS | MGMP IPAS di SMK N 5 (ada tugas)"],[0,29,"Hayatun Najiah, S.Pd","MGMP","IPAS | MGMP IPAS di SMK N 5 (ada tugas)"],[0,29,"Yulli Fitriani, S.Pd","S","Bahasa Indonesia | 4-6 X TOI | ada tugas"],[0,30,"Eny Kusumawati, S.Pd","I","IPAS | 8-10 X TAV | ada tugas"],[0,31,"Winda Kusuma Andarini, S.Pd","I","Matematika | 1-3 XII PPLG; 4-6 XII DPIB1 | Jaga orangtua di RS"],[1,3,"Dr. Kusnan, S.Ag.,M.Pd.I","RAPAT","-"],[1,3,"Maslim, S.Pd","C","-"],[1,3,"Nita Budiarti, S.Pd","RAPAT","-"],[1,4,"Herlina, S.Pd","RAPAT","-"],[1,4,"Maslim, S.Pd","C","-"],[1,4,"Nita Budiarti, S.Pd","MGMP","-"],[1,4,"Tonny Fajar Ramdhani, S.Pd","MGMP","-"],[1,4,"Tri Yudhayati, S.Pd","MGMP","-"],[1,4,"Marina Agustin, S.Pd.,M.Pd","S","-"],[1,5,"Maslim, S.Pd","C","-"],[1,5,"Sukmawati Paputungan, S.H","S","-"],[1,6,"Maslim, S.Pd","C","-"],[1,6,"Rosmawati, S.Pd","RAPAT","-"],[1,6,"Nita Budiarti, S.Pd","S","-"],[1,6,"Marina Agustin, S.Pd.,M.Pd","MGMP","-"],[1,6,"Muktar, S.Pd","MGMP","-"],[1,6,"Siti Rofi'ah, S.Pd","MGMP","-"],[1,6,"Siti Solehatun, M.Pd","MGMP","-"],[1,6,"Yusvanto, M.Pd","MGMP","-"],[1,6,"Yuyun Harmini Noor, S.Pd","MGMP","-"],[1,6,"Mila Ayanah, S.Pd","MGMP","-"],[1,6,"Nanik Indri Astutik, S.Pd","MGMP","-"],[1,6,"Viviana Rubianti, S.Sn","MGMP","-"],[1,7,"Maslim, S.Pd","C","-"],[1,7,"Yunia Hardiani Listiyowardany, S.S","I","-"],[1,10,"Nur Rodiatul Salmiah, S.Pd","TD","-"],[1,11,"Musdalifah, S.Pd","DL","-"],[1,11,"Fenesia Friska Sinurat, S.Pd","DL","-"],[1,12,"Nur Rodiatul Salmiah, S.Pd","TK","-"],[1,13,"Ari Wisnu Saputra, S.Pd","ADIWIYATA","-"],[1,13,"Herlina, S.Pd","I","-"],[1,14,"Nur Rodiatul Salmiah, S.Pd","I","-"],[1,18,"Khalimah Roosdiharti, S.Pd","I","-"],[1,19,"Marina Agustin, S.Pd.,M.Pd","BILINGUAL","-"],[1,19,"Muktar, S.Pd","BILINGUAL","-"],[1,19,"Siti Rofi'ah, S.Pd","BILINGUAL","-"],[1,19,"Siti Solehatun, M.Pd","BILINGUAL","-"],[1,19,"Yusvanto, M.Pd","BILINGUAL","-"],[1,19,"Yuyun Harmini Noor, S.Pd","BILINGUAL","-"],[1,19,"Mila Ayanah, S.Pd","BILINGUAL","-"],[1,20,"Winda Kusuma Andarini, S.Pd","I","-"],[1,21,"Nur Rodiatul Salmiah, S.Pd","I","-"],[1,24,"Nur Rodiatul Salmiah, S.Pd","I","-"],[1,25,"Nur Rodiatul Salmiah, S.Pd","TK","-"],[1,26,"Musdalifah, S.Pd","S","-"],[1,26,"Nur Rodiatul Salmiah, S.Pd","TK","-"],[1,26,"Viviana Rubianti, S.Sn","I","-"],[1,27,"Nur Rodiatul Salmiah, S.Pd","TK","-"],[1,28,"Nur Rodiatul Salmiah, S.Pd","TK","-"],[1,31,"Sigit Purwanto, Drs","DL","-"],[1,31,"Hayatun Najiah, S.Pd","I","-"],[1,31,"Marina Agustin, S.Pd.,M.Pd","S","-"],[1,31,"Mila Ayanah, S.Pd","S","-"],[2,8,"Muktar, S.Pd","DL","-"],[2,8,"Yusvanto, M.Pd","DL","-"],[2,8,"Mila Ayanah, S.Pd","DL","-"],[2,9,"Nur Rodiatul Salmiah, S.Pd","TK","-"],[2,10,"Sulastriningsih, M.Pd","I","-"],[2,10,"Marina Agustin, S.Pd.,M.Pd","I","-"],[2,11,"Marina Agustin, S.Pd.,M.Pd","I","-"],[2,15,"Muhammad Ahsan Halim, S.Or.","DL","-"],[2,15,"Tonny Fajar Ramdhani, S.Pd","TK","-"],[2,16,"Muhammad Ahsan Halim, S.Or.","DL","-"],[2,16,"Tri Yudhayati, S.Pd","I","-"],[2,16,"Mila Ayanah, S.Pd","S","-"],[2,17,"Muhammad Ahsan Halim, S.Or.","DL","-"],[2,17,"Tri Yudhayati, S.Pd","I","-"],[2,17,"Mila Ayanah, S.Pd","S","-"],[2,18,"Muhammad Ahsan Halim, S.Or.","DL","-"],[2,18,"Rosmawati, S.Pd","I","-"],[2,18,"Tri Yudhayati, S.Pd","I","-"],[2,18,"Mila Ayanah, S.Pd","S","-"],[2,21,"Herlina, S.Pd","C","-"],[2,21,"Arvan Fetura, M.Pd","C","-"],[2,21,"Rosmawati, S.Pd","S","-"],[2,21,"Mila Ayanah, S.Pd","S","-"],[2,22,"Herlina, S.Pd","C","-"],[2,22,"Effy Dwiani, S.Pd","S","-"],[2,22,"Fenesia Friska Sinurat, S.Pd","DL","-"],[2,22,"Sri Eko Prihatin, S.Pd","I","-"],[2,22,"Yulli Fitriani, S.Pd","I","-"],[2,22,"Meli Herlina Situmorang, S.Pd","I","-"],[2,23,"Dwi Suharti, S.Pd.I.,M.Pd","S","-"],[2,23,"Musdalifah, S.Pd","S","-"],[2,24,"Eny Kusumawati, S.Pd","I","-"],[2,25,"Ekawaty, S.Pd.,M.Pd","MGMP","-"],[2,29,"Musdalifah, S.Pd","DL","-"],[2,29,"Arvan Fetura, M.Pd","I","-"],[2,29,"Nurhidayati, S.Pd","DL","-"],[2,29,"Muktar, S.Pd","C","-"],[2,30,"Nur Rodiatul Salmiah, S.Pd","S","-"]],"hadirAgu":{"hadir":1115,"total":1168}};
+const MN=['Juli 2026','Agustus 2026','September 2026'],MS=['Juli','Agustus','September'];
+const F=['Izin','Sakit','Cuti','TK','TD','DL','DK','TB','Rapat','MGMP','Bilingual','Adiwiyata','CP','TDCP'];
+const ABS=[0,1,2,3,4,12,13];
+const sel={m:-1,q:'',sk:'tot',asc:false};
+const cols=['c1','c2','c3','c4','c5','c6','c7','c8'];
+const cs=v=>getComputedStyle(document.documentElement).getPropertyValue('--'+v).trim();
+const cc=k=>k===0?cs('green'):k===1?cs('yel'):k===2?cs('pink'):k===3?cs('red'):k===4?cs('orange'):cs(cols[k]);
+const yl=(v,mx,mn)=>{const t=mx===mn?1:(v-mn)/(mx-mn),a=[254,249,195],b=[234,179,8];return 'rgb('+a.map((x,i)=>Math.round(x+(b[i]-x)*t)).join(',')+')'};
+const nf=n=>n.toLocaleString('id-ID');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ms=()=>sel.m<0?[0,1,2]:[sel.m];
+function rows(){return D.teachers.map(t=>{const v=Array(14).fill(0);ms().forEach(i=>t.m[i].forEach((x,k)=>v[k]+=x));return{t,v,tot:ABS.reduce((a,k)=>a+v[k],0)}})}
+function monthSum(i,ks){return D.teachers.reduce((a,t)=>a+ks.reduce((b,k)=>b+t.m[i][k],0),0)}
+let ch={};
+function mk(id,cfg){if(ch[id])ch[id].destroy();ch[id]=new Chart(document.getElementById(id),cfg)}
+function base(){const tx=cs('mut'),gr=cs('line');Chart.defaults.color=tx;Chart.defaults.font.family="'Plus Jakarta Sans',system-ui,sans-serif";return{tx,gr}}
+function render(){
+ const {tx,gr}=base(),R=rows(),lab=sel.m<0?'Juli–September 2026':MN[sel.m];
+ // pills
+ document.getElementById('pills').innerHTML=['Semua bulan',...MS].map((n,i)=>`<button class="pill" aria-pressed="${sel.m===i-1}" data-i="${i-1}">${n}</button>`).join('');
+ document.querySelectorAll('.pill').forEach(b=>b.onclick=()=>{sel.m=+b.dataset.i;render()});
+ // KPIs
+ const S=k=>R.reduce((a,r)=>a+r.v[k],0),tot=R.reduce((a,r)=>a+r.tot,0),dk=S(5)+S(8)+S(9)+S(10)+S(11);
+ const orang=R.filter(r=>r.tot>0).length;
+ const K=[['Total ketidakhadiran',tot,orang+' guru',1],['Izin',S(0),'',0,'izin'],['Sakit',S(1),'',0,'sakit'],['Cuti',S(2),'',0,'cuti'],['TK',S(3),'tanpa keterangan',0,'tk'],['TD',S(4),'terlambat datang',0,'td'],['Dinas & kegiatan',dk,'DL, Rapat, MGMP, Bilingual, Adiwiyata']];
+ document.getElementById('kpis').innerHTML=K.map(k=>`<div class="card kpi${k[3]?' main':''}${k[4]?' '+k[4]:''}"><small>${k[0]}</small><strong>${k[1]}</strong><em>${k[2]}</em></div>`).join('');
+ // ring
+ const p=D.hadirAgu.hadir/D.hadirAgu.total*100;
+ document.getElementById('hp').textContent=p.toFixed(1).replace('.',',')+'%';
+ document.getElementById('hs').textContent='hadir pada Agustus 2026 ('+nf(D.hadirAgu.hadir)+' dari '+nf(D.hadirAgu.total)+' hari tercatat)';
+ const a=document.getElementById('arc'),L=2*Math.PI*42;a.setAttribute('stroke-dasharray',L);a.setAttribute('stroke-dashoffset',L*(1-p/100));
+ // c1
+ const ak=[0,1,2,3,4];
+ mk('c1',{type:'bar',data:{labels:MS,datasets:ak.map(k=>({label:F[k],data:[0,1,2].map(i=>monthSum(i,[k])),backgroundColor:cc(k),borderRadius:3}))},options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gr},ticks:{precision:0}}},plugins:{legend:{position:'bottom',labels:{boxWidth:12}}}}});
+ // c2
+ const ck=[0,1,2,3,4,5,8,9,10,11].filter(k=>S(k)>0);
+ document.getElementById('h2t').textContent=lab;
+ mk('c2',{type:'doughnut',data:{labels:ck.map(k=>F[k]),datasets:[{data:ck.map(S),backgroundColor:ck.map(k=>k<5?cc(k):cs({5:'c4',8:'c7',9:'c2',10:'c6',11:'c8'}[k])),borderColor:cs('surf'),borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{boxWidth:12}}}}});
+ // c3
+ const top=R.filter(r=>r.tot>0).sort((x,y)=>y.tot-x.tot).slice(0,10);
+ document.getElementById('h3t').textContent=lab+' · 10 teratas · kuning makin tua = makin banyak';
+ mk('c3',{type:'bar',data:{labels:top.map(r=>r.t.n.length>26?r.t.n.slice(0,25)+'…':r.t.n),datasets:[{data:top.map(r=>r.tot),backgroundColor:top.map(r=>yl(r.tot,top[0].tot,top[top.length-1].tot)),borderColor:'#CA9A04',borderWidth:1,borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{grid:{color:gr},ticks:{precision:0}},y:{grid:{display:false},ticks:{font:{size:11}}}},plugins:{legend:{display:false}}}});
+ // c4
+ const gk=[5,8,9,10,11];
+ mk('c4',{type:'bar',data:{labels:MS,datasets:gk.map((k,j)=>({label:F[k],data:[0,1,2].map(i=>monthSum(i,[k])),backgroundColor:cs(['c4','c2','c3','c6','c1'][j]),borderRadius:3}))},options:{responsive:true,maintainAspectRatio:false,scales:{x:{grid:{display:false}},y:{grid:{color:gr},ticks:{precision:0}}},plugins:{legend:{position:'bottom',labels:{boxWidth:12}}}}});
+ table(R,lab);events(lab);
+}
+function table(R,lab){
+ const q=sel.q.toLowerCase(),sk=sel.sk;
+ let r=R.filter(x=>x.t.n.toLowerCase().includes(q));
+ const val=x=>sk==='n'?x.t.n:sk==='tot'?x.tot:x.v[sk];
+ r.sort((a,b)=>{const A=val(a),B=val(b);const c=typeof A==='string'?A.localeCompare(B):A-B;return sel.asc?c:-c});
+ const H=[['n','Nama guru'],[0,'Izin'],[1,'Sakit'],[2,'Cuti'],[3,'TK'],[4,'TD'],[5,'DL'],[8,'Rapat'],[9,'MGMP'],[10,'Bilingual'],[11,'Adiwiyata'],['tot','Total']];
+ const cell=(x,k)=>x?`<span class="v k${k}">${x}</span>`:'<span class="z">0</span>';
+ document.getElementById('h5t').textContent=lab+' · '+r.length+' guru · klik judul kolom untuk mengurutkan';
+ document.getElementById('tb').innerHTML='<thead><tr>'+H.map(h=>`<th class="${h[0]==='n'?'nm':'h'+h[0]}" aria-sort="${sk===h[0]?(sel.asc?'ascending':'descending'):'none'}"><button data-k="${h[0]}">${h[1]}${sk===h[0]?(sel.asc?' ▲':' ▼'):''}</button></th>`).join('')+'</tr></thead><tbody>'+r.map(x=>`<tr><td class="nm">${esc(x.t.n)}${x.t.x?'<span class="tag">Juli saja</span>':''}</td>${H.slice(1,11).map(h=>`<td>${cell(x.v[h[0]],h[0])}</td>`).join('')}<td class="tot">${x.tot}</td></tr>`).join('')+'</tbody>';
+ document.querySelectorAll('#tb th button').forEach(b=>b.onclick=()=>{const k=b.dataset.k,kk=isNaN(k)?k:+k;if(sel.sk===kk)sel.asc=!sel.asc;else{sel.sk=kk;sel.asc=kk==='n'}render()});
+}
+function events(lab){
+ const E=D.events.filter(e=>sel.m<0||e[0]===sel.m).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+ document.getElementById('h6t').textContent=lab+' · '+E.length+' catatan.';
+ document.getElementById('ev').innerHTML='<thead><tr><th>Tanggal</th><th class="nm" style="position:static">Nama guru</th><th>Kode</th></tr></thead><tbody>'+E.map(e=>`<tr><td>${e[1]} ${MS[e[0]]}</td><td class="nm" style="position:static">${esc(e[2])}</td><td><span class="ct c${esc(e[3])}">${esc(({I:'Izin',S:'Sakit',C:'Cuti'})[e[3]]||e[3])}</span></td></tr>`).join('')+'</tbody>';
+}
+document.getElementById('q').addEventListener('input',e=>{sel.q=e.target.value;table(rows(),sel.m<0?'Juli–September 2026':MN[sel.m])});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',render);
+render();
+</script>
+</body>
+</html>
